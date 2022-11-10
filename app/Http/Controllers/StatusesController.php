@@ -9,6 +9,10 @@ class StatusesController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'body' => 'required|min:5',
+        ]);
+
         $status = Status::create([
             'user_id' => auth()->id(),
             'body' => $request->body,

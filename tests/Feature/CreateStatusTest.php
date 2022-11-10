@@ -26,7 +26,7 @@ class CreateStatusTest extends TestCase
         $user = factory(User::class)->create();
         $this->actingAs($user);
 
-        $response = $this->post(route('statuses.store'), ['body' => 'Mi primer post']);
+        $response = $this->postJson(route('statuses.store'), ['body' => 'Mi primer post']);
 
         $response->assertJson([
             'body' => 'Mi primer post',
@@ -35,6 +35,34 @@ class CreateStatusTest extends TestCase
         $this->assertDatabaseHas('statuses', [
             'user_id' => $user->id,
             'body' => 'Mi primer post'
+        ]);
+    }
+
+    /** @test */
+    function a_status_requires_a_body()
+    {
+        $this->actingAs(factory(User::class)->create());
+
+        $response = $this->postJson(route('statuses.store'), ['body' => '']);
+
+        $response->assertStatus(422);
+
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
+        ]);
+    }
+
+    /** @test */
+    function a_status_body_requires_a_minimum_length()
+    {
+        $this->actingAs(factory(User::class)->create());
+
+        $response = $this->postJson(route('statuses.store'), ['body' => 'abcd']);
+
+        $response->assertStatus(422);
+
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
         ]);
     }
 }
