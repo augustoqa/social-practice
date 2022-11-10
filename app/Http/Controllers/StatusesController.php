@@ -9,9 +9,11 @@ class StatusesController extends Controller
 {
     public function store(Request $request)
     {
-        Status::create([
+        $status = Status::create([
             'user_id' => auth()->id(),
             'body' => $request->body,
         ]);
+
+        return response()->json(['body' => $status->body]);
     }
 }
