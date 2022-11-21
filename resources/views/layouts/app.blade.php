@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-socialapp">
         <div class="container">
-            <a class="navbar-brand" href="#">SocialApp</a>
+            <a class="navbar-brand" href="{{ route('home') }}">SocialApp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,17 +26,26 @@
 {{--                    </li>--}}
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    @guest
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link">Login</a>
+                    </li>
+                    @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('logout').submit()">Cerrar sesión</a>
                         </div>
                     </li>
+                    <form method="post" action="{{ route('logout') }}" id="logout">
+                        @csrf
+                    </form>
+                    @endguest
                 </ul>
             </div>
         </div>
