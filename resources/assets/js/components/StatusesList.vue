@@ -5,8 +5,8 @@
 			<div class="d-flex align-items-center mb-3">
 				<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="40" class="mr-3">
 				<div>
-					<h5 class="mb-1">Pedro Sal</h5>
-					<div class="small text-muted">Hace una hora</div>
+					<h5 class="mb-1" v-text="status.user_name"></h5>
+					<div class="small text-muted" v-text="status.ago"></div>
 				</div>
 			</div>
 			<p v-text="status.body" class="card-text text-secondary"></p>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<form @submit.prevent="submit"> 
+		<form @submit.prevent="submit">
 			<div class="card-body">
 				<textarea v-model="body" name="body" class="form-control border-0 bg-light" placeholder="¿Qué estás pensando César?"></textarea>
 			</div>
@@ -22,7 +22,7 @@ export default {
 		submit() {
 			axios.post('/statuses', { body: this.body })
 				.then(res => {
-					EventBus.$emit('status-created', res.data)
+					EventBus.$emit('status-created', res.data.data)
 					this.body = ''
 				})
 				.catch(err => {
