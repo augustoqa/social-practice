@@ -14599,7 +14599,7 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(47);
 
 
 /***/ }),
@@ -14608,7 +14608,7 @@ module.exports = __webpack_require__(46);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_auth__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_auth__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_auth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__mixins_auth__);
 
 /**
@@ -49471,6 +49471,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -49489,6 +49491,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		EventBus.$on('status-created', function (data) {
 			_this.statuses.unshift(data);
 		});
+	},
+
+	methods: {
+		like: function like(status) {
+			axios.post('/statuses/' + status.id + '/likes').then(function (res) {
+				status.is_liked = true;
+			});
+		}
 	}
 });
 
@@ -49530,7 +49540,22 @@ var render = function() {
           _c("p", {
             staticClass: "card-text text-secondary",
             domProps: { textContent: _vm._s(status.body) }
-          })
+          }),
+          _vm._v(" "),
+          status.is_liked
+            ? _c("button", [_vm._v("TE GUSTA")])
+            : _c(
+                "button",
+                {
+                  attrs: { dusk: "like-btn" },
+                  on: {
+                    click: function($event) {
+                      return _vm.like(status)
+                    }
+                  }
+                },
+                [_vm._v("ME GUSTA")]
+              )
         ])
       ])
     }),
@@ -49551,17 +49576,6 @@ if (false) {
 /* 46 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */
-/***/ (function(module, exports) {
-
 var user = document.head.querySelector('meta[name="user"]');
 
 module.exports = {
@@ -49577,6 +49591,12 @@ module.exports = {
 		}
 	}
 };
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
