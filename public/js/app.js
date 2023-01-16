@@ -49498,6 +49498,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.post('/statuses/' + status.id + '/likes').then(function (res) {
 				status.is_liked = true;
 			});
+		},
+		unlike: function unlike(status) {
+			axios.delete('/statuses/' + status.id + '/likes').then(function (res) {
+				status.is_liked = false;
+			});
 		}
 	}
 });
@@ -49543,7 +49548,18 @@ var render = function() {
           }),
           _vm._v(" "),
           status.is_liked
-            ? _c("button", [_vm._v("TE GUSTA")])
+            ? _c(
+                "button",
+                {
+                  attrs: { dusk: "unlike-btn" },
+                  on: {
+                    click: function($event) {
+                      return _vm.unlike(status)
+                    }
+                  }
+                },
+                [_vm._v("TE GUSTA")]
+              )
             : _c(
                 "button",
                 {

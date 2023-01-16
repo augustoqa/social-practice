@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<p v-text="status.body" class="card-text text-secondary"></p>
-			<button v-if="status.is_liked">TE GUSTA</button>
+			<button v-if="status.is_liked" dusk="unlike-btn" @click="unlike(status)">TE GUSTA</button>
 			<button v-else dusk="like-btn" @click="like(status)">ME GUSTA</button>
 		</div>
 	</div>
@@ -41,6 +41,12 @@ export default {
 			axios.post(`/statuses/${status.id}/likes`)
 				.then(res => {
 					status.is_liked = true
+				})
+		},
+		unlike(status) {
+			axios.delete(`/statuses/${status.id}/likes`)
+				.then(res => {
+					status.is_liked = false
 				})
 		}
 	}

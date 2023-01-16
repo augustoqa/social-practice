@@ -13,7 +13,7 @@ class UsersCanLikeStatusesTest extends DuskTestCase
     use DatabaseMigrations;
 
     /** @test */
-    function users_can_like_statuses()
+    function users_can_like_and_unlike_statuses()
     {
         $user = factory(User::class)->create();
         $status = factory(Status::class)->create();
@@ -24,7 +24,10 @@ class UsersCanLikeStatusesTest extends DuskTestCase
                 ->waitForText($status->body)
                 ->press('@like-btn')
                 ->waitForText('TE GUSTA')
-                ->assertSee('TE GUSTA');
+                ->assertSee('TE GUSTA')
+                ->press('@unlike-btn')
+                ->waitForText('ME GUSTA')
+                ->assertSee('ME GUSTA');
         });
     }
 }
