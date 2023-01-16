@@ -49296,6 +49296,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -49387,7 +49390,10 @@ var staticRenderFns = [
           staticClass: "btn btn-primary",
           attrs: { type: "submit", id: "create-status" }
         },
-        [_vm._v("Publicar")]
+        [
+          _c("i", { staticClass: "fa-solid fa-paper-plane" }),
+          _vm._v("\n                    Publicar\n                ")
+        ]
       )
     ])
   }
@@ -49473,6 +49479,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -49518,8 +49544,8 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.statuses, function(status) {
-      return _c("div", { staticClass: "card mb-3 border-0" }, [
-        _c("div", { staticClass: "card-body d-flex flex-column shadow-sm" }, [
+      return _c("div", { staticClass: "card mb-3 border-0 shadow-sm" }, [
+        _c("div", { staticClass: "card-body d-flex flex-column" }, [
           _c("div", { staticClass: "d-flex align-items-center mb-3" }, [
             _c("img", {
               staticClass: "mr-3",
@@ -49545,12 +49571,15 @@ var render = function() {
           _c("p", {
             staticClass: "card-text text-secondary",
             domProps: { textContent: _vm._s(status.body) }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-footer p-2" }, [
           status.is_liked
             ? _c(
                 "button",
                 {
+                  staticClass: "btn btn-link btn-sm",
                   attrs: { dusk: "unlike-btn" },
                   on: {
                     click: function($event) {
@@ -49558,11 +49587,12 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("TE GUSTA")]
+                [_vm._m(0, true)]
               )
             : _c(
                 "button",
                 {
+                  staticClass: "btn btn-link btn-sm",
                   attrs: { dusk: "like-btn" },
                   on: {
                     click: function($event) {
@@ -49570,7 +49600,10 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("ME GUSTA")]
+                [
+                  _c("i", { staticClass: "fa-regular fa-thumbs-up" }),
+                  _vm._v("\n                ME GUSTA\n            ")
+                ]
               )
         ])
       ])
@@ -49578,7 +49611,17 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("i", { staticClass: "fa-solid fa-thumbs-up" }),
+      _vm._v("\n                    TE GUSTA\n                ")
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

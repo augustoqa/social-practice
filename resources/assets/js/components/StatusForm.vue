@@ -2,15 +2,18 @@
 	<div>
 		<form @submit.prevent="submit" v-if="isAuthenticated">
 			<div class="card-body">
-				<textarea 
-					v-model="body" 
-					name="body" 
-					class="form-control border-0 bg-light" 
+				<textarea
+					v-model="body"
+					name="body"
+					class="form-control border-0 bg-light"
 					:placeholder="`¿Qué estás pensando ${currentUser.name}?`"
 				></textarea>
 			</div>
 			<div class="card-footer">
-				<button type="submit" id="create-status" class="btn btn-primary">Publicar</button>
+				<button type="submit" id="create-status" class="btn btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Publicar
+                </button>
 			</div>
 		</form>
 		<div v-else class="card-body">

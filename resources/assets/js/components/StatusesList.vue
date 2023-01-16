@@ -1,7 +1,7 @@
 <template>
 	<div>
-	<div v-for="status in statuses" class="card mb-3 border-0">
-		<div class="card-body d-flex flex-column shadow-sm">
+	<div v-for="status in statuses" class="card mb-3 border-0 shadow-sm">
+		<div class="card-body d-flex flex-column">
 			<div class="d-flex align-items-center mb-3">
 				<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="40" class="mr-3">
 				<div>
@@ -10,9 +10,29 @@
 				</div>
 			</div>
 			<p v-text="status.body" class="card-text text-secondary"></p>
-			<button v-if="status.is_liked" dusk="unlike-btn" @click="unlike(status)">TE GUSTA</button>
-			<button v-else dusk="like-btn" @click="like(status)">ME GUSTA</button>
 		</div>
+        <div class="card-footer p-2">
+            <button
+                v-if="status.is_liked"
+                @click="unlike(status)"
+                class="btn btn-link btn-sm"
+                dusk="unlike-btn"
+            >
+                <strong>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    TE GUSTA
+                </strong>
+            </button>
+            <button
+                v-else
+                @click="like(status)"
+                class="btn btn-link btn-sm"
+                dusk="like-btn"
+            >
+                <i class="fa-regular fa-thumbs-up"></i>
+                ME GUSTA
+            </button>
+        </div>
 	</div>
 </div>
 </template>
