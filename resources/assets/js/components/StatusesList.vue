@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div @click="redirectIfGuest">
 	<div v-for="status in statuses" class="card mb-3 border-0 shadow-sm">
 		<div class="card-body d-flex flex-column">
 			<div class="d-flex align-items-center mb-3">
