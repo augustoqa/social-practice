@@ -25,5 +25,6 @@ class StatusResourceTest extends TestCase
         $this->assertEquals('https://cdn-icons-png.flaticon.com/512/149/149071.png', $statusResource['user_avatar']);
         $this->assertEquals($status->created_at->diffForHumans(), $statusResource['ago']);
         $this->assertEquals(false, $statusResource['is_liked']);
+        $this->assertEquals(0, $statusResource['likes_count']);
     }
 }

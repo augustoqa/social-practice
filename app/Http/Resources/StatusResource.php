@@ -21,6 +21,7 @@ class StatusResource extends JsonResource
             'user_avatar' => 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
             'ago' => $this->created_at->diffForHumans(),
             'is_liked' => $this->resource->isLiked(),
+            'likes_count' => $this->resource->likesCount(),
         ];
     }
 }
