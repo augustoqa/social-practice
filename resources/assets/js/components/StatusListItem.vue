@@ -24,7 +24,7 @@
                 <button dusk="comment-btn">Enviar</button>
             </form>
 
-            <div v-for="comment in comments">{{ comment }}</div>
+            <div v-for="comment in comments">{{ comment.body }}</div>
         </div>
     </div>
 </template>
@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             newComment: '',
-            comments: [],
+            comments: this.status.comments,
         }
     },
     methods: {
