@@ -16,6 +16,8 @@ class CommentResource extends JsonResource
     {
         return [
             'body' => $this->body,
+            'user_name' => $this->user->name,
+            'user_avatar' => 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
         ];
     }
 }
