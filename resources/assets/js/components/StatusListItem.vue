@@ -18,16 +18,37 @@
                 <i class="fa-regular fa-thumbs-up"></i>
                 <span dusk="likes-count">{{ status.likes_count }}</span>
             </div>
-
-            <form @submit.prevent="addComment">
-                <textarea name="comment" v-model="newComment"></textarea>
-                <button dusk="comment-btn">Enviar</button>
-            </form>
-
-            <div v-for="comment in comments">
-                {{ comment.user_name }}
-                {{ comment.body }}
+        </div>
+        <div class="card-footer">
+            <div v-for="comment in comments" class="mb-3">
+                <img :src="comment.user_avatar" :alt="comment.user_name"
+                     width="34px" class="shadow-sm float-left mr-2">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-2 text-secondary">
+                        <a href="#"><strong>{{ comment.user_name }}</strong></a>
+                        {{ comment.body }}
+                    </div>
+                </div>
             </div>
+            <form @submit.prevent="addComment" v-if="isAuthenticated">
+                <div class="d-flex align-items-center">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                        :alt="currentUser.name" width="34px" class="shadow-sm mr-2">
+                    <div class="input-group">
+                        <textarea
+                            v-model="newComment"
+                            class="form-control border-0 shadow-sm"
+                            name="comment"
+                            placeholder="Escribe un comentario.."
+                            rows="1"
+                        ></textarea>
+                        <div class="input-group-append">
+                            <button dusk="comment-btn" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </template>
