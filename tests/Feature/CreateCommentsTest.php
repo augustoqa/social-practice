@@ -44,4 +44,19 @@ class CreateCommentsTest extends TestCase
             'body' => $comment['body'],
         ]);
     }
+
+    /** @test */
+    function a_comment_requires_a_body()
+    {
+        $this->actingAs(factory(User::class)->create());
+        $status = factory(Status::class)->create();
+
+        $response = $this->postJson(route('statuses.comments.store', $status), ['body' => '']);
+
+        $response->assertStatus(422);
+
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
+        ]);
+    }
 }

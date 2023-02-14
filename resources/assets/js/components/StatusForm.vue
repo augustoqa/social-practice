@@ -7,6 +7,7 @@
 					name="body"
 					class="form-control border-0 bg-light"
 					:placeholder="`¿Qué estás pensando ${currentUser.name}?`"
+					required
 				></textarea>
 			</div>
 			<div class="card-footer">
