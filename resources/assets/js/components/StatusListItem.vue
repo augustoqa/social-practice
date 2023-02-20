@@ -40,7 +40,7 @@
                             v-model="newComment"
                             class="form-control border-0 shadow-sm"
                             name="comment"
-                            placeholder="Escribe un comentario.."
+                            placeholder="Escribe un comentario"
                             rows="1"
                             required
                         ></textarea>
@@ -76,8 +76,8 @@ export default {
     methods: {
         addComment() {
             axios.post(`/statuses/${this.status.id}/comments`, { body: this.newComment })
-                .then(() => {
-                    this.comments.push(this.newComment)
+                .then(res => {
+                    this.comments.push(res.data.data)
                     this.newComment = ''
                 })
                 .catch(err => {

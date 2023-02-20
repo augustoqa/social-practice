@@ -7,8 +7,5 @@ $factory->define(App\Models\Like::class, function (Faker $faker) {
         'user_id' => function () {
             return factory(\App\User::class)->create()->id;
         },
-        'status_id' => function () {
-            return factory(\App\Models\Status::class)->create()->id;
-        }
     ];
 });

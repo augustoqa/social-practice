@@ -50022,8 +50022,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addComment: function addComment() {
             var _this = this;
 
-            axios.post('/statuses/' + this.status.id + '/comments', { body: this.newComment }).then(function () {
-                _this.comments.push(_this.newComment);
+            axios.post('/statuses/' + this.status.id + '/comments', { body: this.newComment }).then(function (res) {
+                _this.comments.push(res.data.data);
                 _this.newComment = '';
             }).catch(function (err) {
                 console.log(err.response.data);
@@ -50359,7 +50359,7 @@ var render = function() {
                       staticClass: "form-control border-0 shadow-sm",
                       attrs: {
                         name: "comment",
-                        placeholder: "Escribe un comentario..",
+                        placeholder: "Escribe un comentario",
                         rows: "1",
                         required: ""
                       },
