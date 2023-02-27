@@ -39,15 +39,15 @@ export default {
         getText() {
             return this.model.is_liked ? 'TE GUSTA' : 'ME GUSTA'
         },
-        getBtnClases() {
+        getBtnClasses() {
             return [
                 this.model.is_liked ? 'font-weight-bold' : '',
                 'btn', 'btn-link', 'btn-sm' 
             ]
         },
-        getIconClases() {
+        getIconClasses() {
             return [
-                this.model.is_liked ? 'fa-regular' : 'fa-solid', 
+                this.model.is_liked ? 'fa-solid' : 'fa-regular', 
                 'fa-thumbs-up'
             ]
         }
@@ -55,6 +55,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.comments-like-btn {
+    font-size: 0.8em;
+    padding-left: 0;
+    i { display: none; }
+}
 </style>

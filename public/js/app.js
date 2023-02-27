@@ -49896,7 +49896,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49942,6 +49942,17 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__LikeBtn__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50104,13 +50115,13 @@ var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(13)("41a082b8", content, false, {});
+var update = __webpack_require__(13)("0cbb0a89", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b054e644\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LikeBtn.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b054e644\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LikeBtn.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b054e644\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LikeBtn.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b054e644\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LikeBtn.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -50128,7 +50139,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.comments-like-btn[data-v-b054e644] {\n  font-size: 0.8em;\n  padding-left: 0;\n}\n.comments-like-btn i[data-v-b054e644] {\n    display: none;\n}\n", ""]);
 
 // exports
 
@@ -50180,11 +50191,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getText: function getText() {
             return this.model.is_liked ? 'TE GUSTA' : 'ME GUSTA';
         },
-        getBtnClases: function getBtnClases() {
+        getBtnClasses: function getBtnClasses() {
             return [this.model.is_liked ? 'font-weight-bold' : '', 'btn', 'btn-link', 'btn-sm'];
         },
-        getIconClases: function getIconClases() {
-            return [this.model.is_liked ? 'fa-regular' : 'fa-solid', 'fa-thumbs-up'];
+        getIconClasses: function getIconClasses() {
+            return [this.model.is_liked ? 'fa-solid' : 'fa-regular', 'fa-thumbs-up'];
         }
     }
 });
@@ -50292,46 +50303,65 @@ var render = function() {
       { staticClass: "card-footer" },
       [
         _vm._l(_vm.comments, function(comment) {
-          return _c(
-            "div",
-            { staticClass: "mb-3" },
-            [
+          return _c("div", { staticClass: "mb-3" }, [
+            _c("div", { staticClass: "d-flex" }, [
               _c("img", {
                 staticClass: "shadow-sm float-left mr-2",
                 attrs: {
                   src: comment.user_avatar,
                   alt: comment.user_name,
-                  width: "34px"
+                  width: "34px",
+                  height: "34px"
                 }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "card border-0 shadow-sm" }, [
-                _c("div", { staticClass: "card-body p-2 text-secondary" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("strong", [_vm._v(_vm._s(comment.user_name))])
+              _c(
+                "div",
+                { staticClass: "flex-grow-1" },
+                [
+                  _c("div", { staticClass: "card border-0 shadow-sm" }, [
+                    _c("div", { staticClass: "card-body p-2 text-secondary" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _c("strong", [_vm._v(_vm._s(comment.user_name))])
+                      ]),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(comment.body) +
+                          "\n                        "
+                      )
+                    ])
                   ]),
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(comment.body) +
-                      "\n                "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("span", { attrs: { dusk: "comment-likes-count" } }, [
-                _vm._v(_vm._s(comment.likes_count))
-              ]),
-              _vm._v(" "),
-              _c("like-btn", {
-                attrs: {
-                  dusk: "comment-like-btn",
-                  url: "/comments/" + comment.id + "/likes",
-                  model: comment
-                }
-              })
-            ],
-            1
-          )
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass:
+                        "float-right badge badge-pill badge-primary py-1 px-2 mt-1",
+                      attrs: { dusk: "comment-likes-count" }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-thumbs-up" }),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(comment.likes_count) +
+                          "\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("like-btn", {
+                    staticClass: "comments-like-btn",
+                    attrs: {
+                      dusk: "comment-like-btn",
+                      url: "/comments/" + comment.id + "/likes",
+                      model: comment
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
         }),
         _vm._v(" "),
         _vm.isAuthenticated
