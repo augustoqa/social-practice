@@ -50245,19 +50245,15 @@ var render = function() {
   return _c("div", { staticClass: "card mb-3 border-0 shadow-sm" }, [
     _c("div", { staticClass: "card-body d-flex flex-column" }, [
       _c("div", { staticClass: "d-flex align-items-center mb-3" }, [
-        _c("img", {
-          staticClass: "mr-3",
-          attrs: {
-            src: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-            width: "40"
-          }
-        }),
+        _c("img", { staticClass: "mr-3", attrs: { src: "", width: "40" } }),
         _vm._v(" "),
         _c("div", [
-          _c("h5", {
-            staticClass: "mb-1",
-            domProps: { textContent: _vm._s(_vm.status.user_name) }
-          }),
+          _c("h5", { staticClass: "mb-1" }, [
+            _c("a", {
+              attrs: { href: _vm.status.user_link },
+              domProps: { textContent: _vm._s(_vm.status.user_name) }
+            })
+          ]),
           _vm._v(" "),
           _c("div", {
             staticClass: "small text-muted",
@@ -50321,7 +50317,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card border-0 shadow-sm" }, [
                     _c("div", { staticClass: "card-body p-2 text-secondary" }, [
-                      _c("a", { attrs: { href: "#" } }, [
+                      _c("a", { attrs: { href: comment.user_link } }, [
                         _c("strong", [_vm._v(_vm._s(comment.user_name))])
                       ]),
                       _vm._v(
@@ -50380,8 +50376,7 @@ var render = function() {
                   _c("img", {
                     staticClass: "shadow-sm mr-2",
                     attrs: {
-                      src:
-                        "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+                      src: _vm.currentUser.user_avatar,
                       alt: _vm.currentUser.name,
                       width: "34px"
                     }
