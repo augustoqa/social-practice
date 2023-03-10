@@ -49791,6 +49791,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	components: {
 		StatusListItem: __WEBPACK_IMPORTED_MODULE_0__StatusListItem___default.a
 	},
+	props: {
+		url: String
+	},
 	data: function data() {
 		return {
 			statuses: []
@@ -49799,7 +49802,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		var _this = this;
 
-		axios.get('/statuses').then(function (res) {
+		axios.get(this.getUrl).then(function (res) {
 			_this.statuses = res.data.data;
 		}).catch(function (err) {
 			console.log(err.response.data);
@@ -49807,6 +49810,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		EventBus.$on('status-created', function (data) {
 			_this.statuses.unshift(data);
 		});
+	},
+
+	computed: {
+		getUrl: function getUrl() {
+			return this.url ? this.url : '/statuses';
+		}
 	}
 });
 
