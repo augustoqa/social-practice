@@ -28,6 +28,7 @@ class UserTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $this->assertEquals('https://cdn-icons-png.flaticon.com/512/149/149071.png', $user->avatar(), $user->link());
+        $this->assertEquals('https://cdn-icons-png.flaticon.com/512/149/149071.png', $user->avatar());
+        $this->assertEquals('https://cdn-icons-png.flaticon.com/512/149/149071.png', $user->avatar);
     }
 }

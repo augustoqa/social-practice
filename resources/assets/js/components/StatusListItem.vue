@@ -54,7 +54,7 @@
             <form @submit.prevent="addComment" v-if="isAuthenticated">
                 <div class="d-flex align-items-center">
                     <img
-                        :src="currentUser.user_avatar"
+                        :src="currentUser.avatar"
                         :alt="currentUser.name" width="34px" class="shadow-sm mr-2">
                     <div class="input-group">
                         <textarea

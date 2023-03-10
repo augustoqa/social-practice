@@ -25,6 +25,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['avatar'];
+
     public function getRouteKeyName()
     {
         return 'name';
@@ -38,5 +40,10 @@ class User extends Authenticatable
     public function avatar()
     {
         return 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+    }
+
+    public function getAvatarAttribute()
+    {
+        return $this->avatar();
     }
 }

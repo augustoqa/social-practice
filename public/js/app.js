@@ -50383,7 +50383,7 @@ var render = function() {
                   _c("img", {
                     staticClass: "shadow-sm mr-2",
                     attrs: {
-                      src: _vm.currentUser.user_avatar,
+                      src: _vm.currentUser.avatar,
                       alt: _vm.currentUser.name,
                       width: "34px"
                     }
