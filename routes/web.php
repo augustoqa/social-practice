@@ -30,4 +30,12 @@ Route::get('@{user}', 'UsersController@show')->name('users.show');
 Route::get('users/{user}/statuses', 'UsersStatusController@index')
     ->name('users.statuses.index');
 
+// Friendships routes
+Route::post('friendships/{recipient}', 'FriendshipsController@store')
+    ->name('friendships.store');
+
+// Request Friendship routes
+Route::post('request-friendships/{sender}', 'RequestFriendshipsController@store')
+    ->name('request-friendships.store');
+
 Route::auth();
