@@ -10,7 +10,7 @@ class FriendshipsController extends Controller
 {
     public function store(User $recipient)
     {
-        Friendship::create([
+        Friendship::firstOrCreate([
             'sender_id' => auth()->id(),
             'recipient_id' => $recipient->id,
         ]);
