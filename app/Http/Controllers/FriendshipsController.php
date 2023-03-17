@@ -14,6 +14,10 @@ class FriendshipsController extends Controller
             'sender_id' => auth()->id(),
             'recipient_id' => $recipient->id,
         ]);
+
+        return response()->json([
+            'friendship_status' => 'pending',
+        ]);
     }
 
     public function destroy(User $recipient)
@@ -22,5 +26,9 @@ class FriendshipsController extends Controller
             'sender_id' => auth()->id(),
             'recipient_id' => $recipient->id,
         ])->delete();
+
+        return response()->json([
+            'friendship_status' => 'deleted',
+        ]);
     }
 }
