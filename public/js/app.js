@@ -15008,8 +15008,8 @@ window.Pusher = __webpack_require__(39);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo__["a" /* default */]({
     broadcaster: "pusher",
-    key: "",
-    cluster: "mt1",
+    key: "352d3799772343fab09d",
+    cluster: "us2",
     encrypted: true
 });
 
