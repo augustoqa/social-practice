@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Broadcast;
 use App\User;
 use Tests\TestCase;
 use App\Events\StatusCreated;
@@ -26,7 +27,7 @@ class CreateStatusTest extends TestCase
     function an_authenticated_user_can_create_statuses()
     {
         Event::fake([StatusCreated::class]);
-
+        
         $this->withoutExceptionHandling();
 
         $user = factory(User::class)->create();
@@ -38,17 +39,34 @@ class CreateStatusTest extends TestCase
             'data' => ['body' => 'Mi primer post'],
         ]);
 
-        Event::assertDispatched(StatusCreated::class, function ($e) {
-            return $e->status->id === Status::first()->id 
-                && $e->status instanceof StatusResource
-                && $e->status->resource instanceof Status
-                && $e instanceof ShouldBroadcast;
-        });
-
         $this->assertDatabaseHas('statuses', [
             'user_id' => $user->id,
             'body' => 'Mi primer post'
         ]);
+    }
+
+    /** @test */
+    function an_event_is_fired_when_a_status_is_created()
+    {
+        Event::fake([StatusCreated::class]);
+        Broadcast::shouldReceive('socket')->andReturn('socket-id');
+
+        $user = factory(User::class)->create();
+        $this->actingAs($user)->postJson(route('statuses.store'), ['body' => 'Mi primer post']);
+
+        Event::assertDispatched(StatusCreated::class, function ($createdEventStatus) {
+            $this->assertInstanceOf(ShouldBroadcast::class, $createdEventStatus);
+            $this->assertInstanceOf(StatusResource::class, $createdEventStatus->status);
+            $this->assertInstanceOf(Status::class, $createdEventStatus->status->resource);
+            $this->assertEquals($createdEventStatus->status->id, Status::first()->id);
+            $this->assertEquals(
+                'socket-id',
+                $createdEventStatus->socket,
+                'The event ' . get_class() . ' must call the method "dontBroadcastToCurrentUser" in the constructor.'
+            );
+
+            return true;
+        });
     }
 
     /** @test */
