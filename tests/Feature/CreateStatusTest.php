@@ -58,11 +58,11 @@ class CreateStatusTest extends TestCase
             $this->assertInstanceOf(ShouldBroadcast::class, $createdEventStatus);
             $this->assertInstanceOf(StatusResource::class, $createdEventStatus->status);
             $this->assertInstanceOf(Status::class, $createdEventStatus->status->resource);
-            $this->assertEquals($createdEventStatus->status->id, Status::first()->id);
+            $this->assertEquals(Status::first()->id, $createdEventStatus->status->id);
             $this->assertEquals(
                 'socket-id',
                 $createdEventStatus->socket,
-                'The event ' . get_class() . ' must call the method "dontBroadcastToCurrentUser" in the constructor.'
+                'The event ' . get_class($createdEventStatus) . ' must call the method "dontBroadcastToCurrentUser" in the constructor.'
             );
 
             return true;
